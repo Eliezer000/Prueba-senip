@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Ranger Limited - SENIP AUTOMOTORES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .header-scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .carousel-item {
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+        <div class="container mx-auto px-4">
+          <nav class="flex items-center justify-between h-24">
+            <div class="w-48">
+              <a href="index.html">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20Svg-5rbyGR9YglPWGyBU8xxhWjt9BHet6k.svg"
+                  alt="SENIP AUTOMOTORES"
+                  class="w-full"
+                />
+              </a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="index.html" class="text-white hover:text-red-600 transition-colors font-light">Inicio</a>
+              <a href="0km.html" class="text-red-600 hover:text-red-700 transition-colors font-semibold">0km</a>
+              <a href="usados.html" class="text-red-600 hover:text-red-700 transition-colors font-semibold">Usados</a>
+              <a href="#" class="text-white hover:text-red-600 transition-colors font-light">Nosotros</a>
+              <a href="#" class="text-white hover:text-red-600 transition-colors font-light">Contacto</a>
+            </div>
+            
+            <div class="md:hidden">
+              <button id="menu-toggle" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden bg-black overflow-hidden transition-all duration-300 max-h-0">
+          <div class="container mx-auto px-4 py-4">
+            <a href="index.html" class="block text-white hover:text-red-600 transition-colors font-light py-2">Inicio</a>
+            <a href="0km.html" class="block text-red-600 hover:text-red-700 transition-colors font-light py-2">0km</a>
+            <a href="usados.html" class="block text-red-600 hover:text-red-700 transition-colors font-light py-2">Usados</a>
+            <a href="#" class="block text-white hover:text-red-600 transition-colors font-light py-2">Nosotros</a>
+            <a href="#" class="block text-white hover:text-red-600 transition-colors font-light py-2">Contacto</a>
+          </div>
+        </div>
+      </header>
+
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Vehicle Detail Section -->
+        <section class="py-8">
+            <div class="container mx-auto px-4">
+                <!-- Breadcrumb removed -->
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Image Carousel -->
+                    <div class="space-y-4">
+                        <div class="relative rounded-lg overflow-hidden border-2 border-red-600">
+                            <div id="mainCarousel" class="relative h-[400px]">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0km2.jpg-IofOtHHWcMtjCxamudX0zRfcf6urWQ.jpeg" 
+                                     alt="Ford Ranger" class="carousel-item active w-full h-full object-cover">
+                                <img src="/placeholder.svg?height=400&width=600" alt="Ford Ranger Interior" class="carousel-item w-full h-full object-cover">
+                                <img src="/placeholder.svg?height=400&width=600" alt="Ford Ranger Posterior" class="carousel-item w-full h-full object-cover">
+                            </div>
+                            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full" onclick="prevSlide()">
+                                ←
+                            </button>
+                            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full" onclick="nextSlide()">
+                                →
+                            </button>
+                        </div>
+                        <!-- Thumbnails -->
+                        <div class="flex space-x-2 overflow-x-auto pb-2">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0km2.jpg-IofOtHHWcMtjCxamudX0zRfcf6urWQ.jpeg" 
+                                 alt="Thumbnail 1" 
+                                 class="w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-red-600">
+                            <img src="/placeholder.svg?height=100&width=100" 
+                                 alt="Thumbnail 2" 
+                                 class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-2 hover:border-red-600">
+                            <img src="/placeholder.svg?height=100&width=100" 
+                                 alt="Thumbnail 3" 
+                                 class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:border-2 hover:border-red-600">
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Information -->
+                    <div class="space-y-6">
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-800">Ford Ranger Limited</h1>
+                            <p class="text-xl text-gray-600 mt-1">Pickup • Automática • Diésel</p>
+                        </div>
+
+                        <div class="text-4xl font-bold text-gray-900">
+                            $45,990
+                        </div>
+
+                        <!-- Quick Specs -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-b py-4">
+                            <div class="space-y-1">
+                                <p class="text-gray-600">Marca</p>
+                                <p class="font-semibold">Ford</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="text-gray-600">Modelo</p>
+                                <p class="font-semibold">Ranger Limited</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="text-gray-600">Transmisión</p>
+                                <p class="font-semibold">Automática</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="text-gray-600">Combustible</p>
+                                <p class="font-semibold">Diésel</p>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Button -->
+                        <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20la%20Ford%20Ranger%20Limited" 
+                           target="_blank"
+                           class="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-medium transition-colors shadow-lg hover:shadow-xl">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                            </svg>
+                            Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Technical Specifications -->
+                <div class="mt-12">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">Ficha técnica</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 class="font-semibold mb-4 text-gray-800">Motor y Rendimiento</h3>
+                            <dl class="space-y-2">
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Motor</dt>
+                                    <dd>2.0L Bi-Turbo</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Potencia</dt>
+                                    <dd>213 hp</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Torque</dt>
+                                    <dd>500 Nm</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                            <h3 class="font-semibold mb-4 text-gray-800">Dimensiones</h3>
+                            <dl class="space-y-2">
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Largo</dt>
+                                    <dd>5,387 mm</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Ancho</dt>
+                                    <dd>1,860 mm</dd>
+                                </div>
+                                <div class="flex justify-between">
+                                    <dt class="text-gray-600">Alto</dt>
+                                    <dd>1,848 mm</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Thumbnail click handlers
+        document.querySelectorAll('.thumbnails img').forEach((thumb, index) => {
+            thumb.addEventListener('click', () => showSlide(index));
+        });
+    </script>
+    <script>
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

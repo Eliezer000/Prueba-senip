@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENIP AUTOMOTORES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .header-scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .showcase-card {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+        }
+        .showcase-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        }
+        .vehicle-card {
+            transition: transform 0.3s ease;
+        }
+        .vehicle-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+        <div class="container mx-auto px-4">
+          <nav class="flex items-center justify-between h-24">
+            <div class="w-48">
+              <a href="index.html">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20Svg-5rbyGR9YglPWGyBU8xxhWjt9BHet6k.svg"
+                  alt="SENIP AUTOMOTORES"
+                  class="w-full"
+                />
+              </a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="index.html" class="text-white hover:text-red-600 transition-colors font-light">Inicio</a>
+              <a href="0km.html" class="text-red-600 hover:text-red-700 transition-colors font-semibold">0km</a>
+              <a href="usados.html" class="text-red-600 hover:text-red-700 transition-colors font-semibold">Usados</a>
+              <a href="#" class="text-white hover:text-red-600 transition-colors font-light">Nosotros</a>
+              <a href="#" class="text-white hover:text-red-600 transition-colors font-light">Contacto</a>
+            </div>
+            
+            <div class="md:hidden">
+              <button id="menu-toggle" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden bg-black overflow-hidden transition-all duration-300 max-h-0">
+          <div class="container mx-auto px-4 py-4">
+            <a href="index.html" class="block text-white hover:text-red-600 transition-colors font-light py-2">Inicio</a>
+            <a href="0km.html" class="block text-red-600 hover:text-red-700 transition-colors font-light py-2">0km</a>
+            <a href="usados.html" class="block text-red-600 hover:text-red-700 transition-colors font-light py-2">Usados</a>
+            <a href="#" class="block text-white hover:text-red-600 transition-colors font-light py-2">Nosotros</a>
+            <a href="#" class="block text-white hover:text-red-600 transition-colors font-light py-2">Contacto</a>
+          </div>
+        </div>
+      </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="relative h-screen w-full overflow-hidden">
+            <video 
+                id="hero-video"
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                class="absolute top-0 left-0 w-full h-full object-cover"
+            >
+                <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Video%20Inicio-mBWCtuJmTuYTtscDuA7YoPF6WPf3h9.mp4" type="video/mp4">
+            </video>
+            
+            <div class="absolute inset-0 bg-black/40"></div>
+            
+            <div class="relative h-full container mx-auto px-4 flex items-center">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">
+                        SENIP AUTOMOTORES
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 font-medium">
+                        Descubre la excelencia en cada detalle
+                    </p>
+                    <div class="mt-8 flex gap-4">
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-[5px] transition-colors font-medium">
+                            Ver Vehículos
+                        </button>
+                        <button class="border border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded-[5px] transition-colors font-medium">
+                            Contactar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="bg-white py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-3 tracking-tight text-black">
+                    Siempre las mejores pickups para vos
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+                    <!-- Showcase Card 1 -->
+                    <div class="showcase-card rounded-lg">
+                        <img src="/placeholder.svg?height=700&width=350" alt="Pickup 1" 
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Showcase Card 2 -->
+                    <div class="showcase-card rounded-lg">
+                        <img src="/placeholder.svg?height=700&width=350" alt="Pickup 2" 
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Showcase Card 3 -->
+                    <div class="showcase-card rounded-lg">
+                        <img src="/placeholder.svg?height=700&width=350" alt="Pickup 3" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 0km Vehicles Section -->
+        <section id="0km" class="bg-white py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl md:text-6xl font-bold text-center mb-3 tracking-tight text-black">0km</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 font-light">Disponibles ahora</p>
+
+                <!-- Vehicle Cards Container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <!-- Vehicle Card 1 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-80">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0km2.jpg-IofOtHHWcMtjCxamudX0zRfcf6urWQ.jpeg" alt="Ford Ranger" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-red-500 text-xs font-medium">0KM</span>
+                                    <h3 class="text-xl font-bold text-white mt-1">Ranger Limited</h3>
+                                    <p class="text-2xl font-bold text-white mt-2">$45,990</p>
+                                </div>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-[5px] text-sm font-medium">
+                                    Explorar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Card 2 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-80">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0km1.jpg-rhzrFUtSlOsgZlCDXoFIgJDaFkNPuL.jpeg" alt="VW Amarok" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-red-500 text-xs font-medium">0KM</span>
+                                    <h3 class="text-xl font-bold text-white mt-1">Amarok V6</h3>
+                                    <p class="text-2xl font-bold text-white mt-2">$48,990</p>
+                                </div>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-[5px] text-sm font-medium">
+                                    Explorar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Card 3 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-80">
+                            <img src="/placeholder.svg?height=400&width=600" alt="Toyota Hilux" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-red-500 text-xs font-medium">0KM</span>
+                                    <h3 class="text-xl font-bold text-white mt-1">Hilux GR Sport</h3>
+                                    <p class="text-2xl font-bold text-white mt-2">$42,590</p>
+                                </div>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-[5px] text-sm font-medium">
+                                    Explorar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Card 4 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-80">
+                            <img src="/placeholder.svg?height=400&width=600" alt="RAM 1500" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-red-500 text-xs font-medium">0KM</span>
+                                    <h3 class="text-xl font-bold text-white mt-1">RAM 1500</h3>
+                                    <p class="text-2xl font-bold text-white mt-2">$52,990</p>
+                                </div>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-[5px] text-sm font-medium">
+                                    Explorar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="0km.html" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-[5px] inline-block transition-colors font-medium">
+                        Ver todos los 0km
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usados Section -->
+        <section id="usados" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl md:text-6xl font-bold text-center mb-3 tracking-tight text-black">Usados</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 font-light">Vehículos seleccionados para ti</p>
+
+                <!-- Vehicle Cards Container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Used Vehicle Card 1 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-56">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Used Pickup 1" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-4">
+                            <div class="flex flex-col">
+                                <span class="text-red-500 text-xs font-medium">USADO</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Pickup Modelo A</h3>
+                                <p class="text-xl font-bold text-white mt-2">$35,990</p>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-[5px] text-sm font-medium mt-3">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Used Vehicle Card 2 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-56">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Used Pickup 2" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-4">
+                            <div class="flex flex-col">
+                                <span class="text-red-500 text-xs font-medium">USADO</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Pickup Modelo B</h3>
+                                <p class="text-xl font-bold text-white mt-2">$32,990</p>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-[5px] text-sm font-medium mt-3">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Used Vehicle Card 3 -->
+                    <div class="vehicle-card flex flex-col rounded-lg overflow-hidden">
+                        <div class="relative h-56">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Used Pickup 3" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-black p-4">
+                            <div class="flex flex-col">
+                                <span class="text-red-500 text-xs font-medium">USADO</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Pickup Modelo C</h3>
+                                <p class="text-xl font-bold text-white mt-2">$38,990</p>
+                                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-[5px] text-sm font-medium mt-3">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-[5px] inline-block transition-colors font-medium">
+                        Ver todos los usados
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
